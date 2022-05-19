@@ -166,7 +166,7 @@ class Affichage {
         "|   4. Quota en taille maximale utilisable                              |\n" +
         "|   5. Autoriser une ip depuis laquelle l'utilisateur peut se connecter |\n" +
         "|   6. Interdire une ip depuis laquelle l'utilisateur peut se connecter |\n" +
-        "|   7. Limitation horraire                                              |\n" +
+        "|   7. Limitation horaire                                               |\n" +
         "|   8. Nombre de session simultanée autorisées                          |\n" +
         "|   9. Supprimer l'utilisateur                                          |\n" +
         "|   10. Quitter                                                         |\n" +

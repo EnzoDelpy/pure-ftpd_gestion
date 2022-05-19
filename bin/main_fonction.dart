@@ -11,6 +11,7 @@ class MainFonction {
   static Future<void> choix_2() async {
     if (await GestionUtilisateurs.creerUtilisateur(
         Affichage.getNomUtilisateur())) {
+      await GestionUtilisateurs.restartService();
       print(Affichage.afficheCreaUtilisateurReussite());
       await Future.delayed(Duration(seconds: 2));
     } else {
@@ -56,11 +57,13 @@ class MainFonction {
     int choix = Affichage.choixMenus(2);
     if (choix == 1) {
       int limite = Affichage.getLimiteTelechargment();
-      GestionUtilisateurs.limiteTelechargement(nom, limite);
+      await GestionUtilisateurs.limiteTelechargement(nom, limite);
+      await GestionUtilisateurs.restartService();
       print(Affichage.afficheOperationReussite());
       await Future.delayed(Duration(seconds: 2));
     } else {
-      GestionUtilisateurs.reinitLimiteTelechargement(nom);
+      await GestionUtilisateurs.reinitLimiteTelechargement(nom);
+      await GestionUtilisateurs.restartService();
       print(Affichage.afficheOperationReussite());
       await Future.delayed(Duration(seconds: 2));
     }
@@ -71,11 +74,13 @@ class MainFonction {
     int choix = Affichage.choixMenus(2);
     if (choix == 1) {
       int limite = Affichage.getLimiteEnvoi();
-      GestionUtilisateurs.limiteEnvoi(nom, limite);
+      await GestionUtilisateurs.limiteEnvoi(nom, limite);
+      await GestionUtilisateurs.restartService();
       print(Affichage.afficheOperationReussite());
       await Future.delayed(Duration(seconds: 2));
     } else {
-      GestionUtilisateurs.reinitLimiteEnvoi(nom);
+      await GestionUtilisateurs.reinitLimiteEnvoi(nom);
+      await GestionUtilisateurs.restartService();
       print(Affichage.afficheOperationReussite());
       await Future.delayed(Duration(seconds: 2));
     }
@@ -86,11 +91,13 @@ class MainFonction {
     int choix = Affichage.choixMenus(2);
     if (choix == 1) {
       int limite = Affichage.getQuotaFichier();
-      GestionUtilisateurs.quotaFichier(nom, limite);
+      await GestionUtilisateurs.quotaFichier(nom, limite);
+      await GestionUtilisateurs.restartService();
       print(Affichage.afficheOperationReussite());
       await Future.delayed(Duration(seconds: 2));
     } else {
-      GestionUtilisateurs.reinitQuotaFichier(nom);
+      await GestionUtilisateurs.reinitQuotaFichier(nom);
+      await GestionUtilisateurs.restartService();
       print(Affichage.afficheOperationReussite());
       await Future.delayed(Duration(seconds: 2));
     }
@@ -101,11 +108,13 @@ class MainFonction {
     int choix = Affichage.choixMenus(2);
     if (choix == 1) {
       int limite = Affichage.getQuotaTaille();
-      GestionUtilisateurs.tailleMax(nom, limite);
+      await GestionUtilisateurs.tailleMax(nom, limite);
+      await GestionUtilisateurs.restartService();
       print(Affichage.afficheOperationReussite());
       await Future.delayed(Duration(seconds: 2));
     } else {
-      GestionUtilisateurs.reinitTailleMax(nom);
+      await GestionUtilisateurs.reinitTailleMax(nom);
+      await GestionUtilisateurs.restartService();
       print(Affichage.afficheOperationReussite());
       await Future.delayed(Duration(seconds: 2));
     }
@@ -116,11 +125,13 @@ class MainFonction {
     int choix = Affichage.choixMenus(2);
     if (choix == 1) {
       String limite = Affichage.getIp();
-      GestionUtilisateurs.autoriseIp(nom, limite);
+      await GestionUtilisateurs.autoriseIp(nom, limite);
+      await GestionUtilisateurs.restartService();
       print(Affichage.afficheOperationReussite());
       await Future.delayed(Duration(seconds: 2));
     } else {
-      GestionUtilisateurs.reinitAutoriseIp(nom);
+      await GestionUtilisateurs.reinitAutoriseIp(nom);
+      await GestionUtilisateurs.restartService();
       print(Affichage.afficheOperationReussite());
       await Future.delayed(Duration(seconds: 2));
     }
@@ -131,29 +142,24 @@ class MainFonction {
     int choix = Affichage.choixMenus(2);
     if (choix == 1) {
       String limite = Affichage.getIp();
-      GestionUtilisateurs.bloqueIp(nom, limite);
+      await GestionUtilisateurs.bloqueIp(nom, limite);
+      await GestionUtilisateurs.restartService();
       print(Affichage.afficheOperationReussite());
       await Future.delayed(Duration(seconds: 2));
     } else {
-      GestionUtilisateurs.reinitBloqueIp(nom);
+      await GestionUtilisateurs.reinitBloqueIp(nom);
+      await GestionUtilisateurs.restartService();
       print(Affichage.afficheOperationReussite());
       await Future.delayed(Duration(seconds: 2));
     }
   }
 
   static Future<void> choix_1_7(String nom) async {
-    print(Affichage.afficheGestion2(nom));
-    int choix = Affichage.choixMenus(2);
-    if (choix == 1) {
-      String limite = Affichage.getHoraire();
-      GestionUtilisateurs.limiteHoraire(nom, limite);
-      print(Affichage.afficheOperationReussite());
-      await Future.delayed(Duration(seconds: 2));
-    } else {
-      GestionUtilisateurs.reinitLimiteHoraire(nom);
-      print(Affichage.afficheOperationReussite());
-      await Future.delayed(Duration(seconds: 2));
-    }
+    String limite = Affichage.getHoraire();
+    await GestionUtilisateurs.limiteHoraire(nom, limite);
+    await GestionUtilisateurs.restartService();
+    print(Affichage.afficheOperationReussite());
+    await Future.delayed(Duration(seconds: 2));
   }
 
   static Future<void> choix_1_8(String nom) async {
@@ -161,11 +167,13 @@ class MainFonction {
     int choix = Affichage.choixMenus(2);
     if (choix == 1) {
       int limite = Affichage.getNbSession();
-      GestionUtilisateurs.nbSession(nom, limite);
+      await GestionUtilisateurs.nbSession(nom, limite);
+      await GestionUtilisateurs.restartService();
       print(Affichage.afficheOperationReussite());
       await Future.delayed(Duration(seconds: 2));
     } else {
-      GestionUtilisateurs.reinitNbSession(nom);
+      await GestionUtilisateurs.reinitNbSession(nom);
+      await GestionUtilisateurs.restartService();
       print(Affichage.afficheOperationReussite());
       await Future.delayed(Duration(seconds: 2));
     }
@@ -173,7 +181,8 @@ class MainFonction {
 
   static Future<void> choix_1_9(String nom) async {
     if (Affichage.confirmationSuppression()) {
-      GestionUtilisateurs.supprimeUtilisateur(nom);
+      await GestionUtilisateurs.supprimeUtilisateur(nom);
+      await GestionUtilisateurs.restartService();
       print(Affichage.afficheOperationReussite());
       await Future.delayed(Duration(seconds: 2));
     }

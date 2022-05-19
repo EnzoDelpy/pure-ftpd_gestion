@@ -30,6 +30,11 @@ class GestionUtilisateurs {
     ]);
   }
 
+  //redemarre le service pure-ftpd
+  static Future<void> restartService() async {
+    await Process.run('bash', ['-c', 'service pure-ftpd restart']);
+  }
+
   //retourne une liste contenant tout les utilisateurs virtuels existants
   static Future<List<String>> getUtilisateurs() async {
     ProcessResult result = await Process.run(

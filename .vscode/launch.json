@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": "Dart (bin/projet_ftp.dart)",
+            "type": "dart",
+            "request": "launch",
+            "program": "bin/projet_ftp.dart",
+            "console": "terminal"
+        }
+    ]
+}

@@ -10,7 +10,7 @@ Lors du lancement du programme si pure-ftpd n'est pas encore installé sur votre
 
 Structure du programme:
 
-Ce programme est réalisé en dart avec la méthode POO dans le langage dart   
+Ce programme est réalisé en dart avec la méthode POO  
 
 ![POO](diagramme_pure-ftpd.png)
   

@@ -11,6 +11,8 @@ Lors du lancement du programme si pure-ftpd n'est pas encore installé sur votre
 Structure du programme:
 
 Ce programme est réalisé en dart avec la méthode POO  
+
+![POO](diagramme_pure-ftpd.png)
   
 Les méthodes des classes sont commentées je vous invite à aller voir le code pour plus de détails sur les méthodes
   

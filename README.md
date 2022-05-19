@@ -18,21 +18,20 @@ Les méthodes des classes sont commentées je vous invite à aller voir le code 
   
 ## Fonctionnalités
 
-Ce logiciel permet de :
-
-Installer et configurer pure-ftpd si ce n’est pas fait sur la machine
-afficher les utilisateurs virtuels
-créer des utilisateurs virtuels
-gérer les utilisateurs virtuels :
--Limiter la bande passante de téléchargement
--Limiter la bande passante de l’envoi
--Quota en nombre de fichier max
--Quota en taille maximale utilisable
--Autoriser une ip depuis laquelle l’utilisateur peut se connecter 
--Interdire une ip depuis laquelle l’utilisateur peut se connecter
--Limitation horaire 
--Limitation du nombre de session simultanée autorisée
--Supprimer un utilisateur  
+Ce logiciel permet de :  
+  Installer et configurer pure-ftpd si ce n’est pas fait sur la machine  
+  afficher les utilisateurs virtuels  
+  créer des utilisateurs virtuels  
+  gérer les utilisateurs virtuels :  
+  -Limiter la bande passante de téléchargement  
+  -Limiter la bande passante de l’envoi  
+  -Quota en nombre de fichier max  
+  -Quota en taille maximale utilisable  
+  -Autoriser une ip depuis laquelle l’utilisateur peut se connecter  
+  -Interdire une ip depuis laquelle l’utilisateur peut se connecter  
+  -Limitation horaire   
+  -Limitation du nombre de session simultanée autorisée  
+  -Supprimer un utilisateur  
   
 
 ## Tests

@@ -155,11 +155,20 @@ class MainFonction {
   }
 
   static Future<void> choix_1_7(String nom) async {
-    String limite = Affichage.getHoraire();
-    await GestionUtilisateurs.limiteHoraire(nom, limite);
-    await GestionUtilisateurs.restartService();
-    print(Affichage.afficheOperationReussite());
-    await Future.delayed(Duration(seconds: 2));
+    print(Affichage.afficheGestion2(nom));
+    int choix = Affichage.choixMenus(2);
+    if (choix == 1) {
+      String limite = Affichage.getHoraire();
+      await GestionUtilisateurs.limiteHoraire(nom, limite);
+      await GestionUtilisateurs.restartService();
+      print(Affichage.afficheOperationReussite());
+      await Future.delayed(Duration(seconds: 2));
+    } else {
+      await GestionUtilisateurs.reinitLimiteHoraire(nom);
+      await GestionUtilisateurs.restartService();
+      print(Affichage.afficheOperationReussite());
+      await Future.delayed(Duration(seconds: 2));
+    }
   }
 
   static Future<void> choix_1_8(String nom) async {

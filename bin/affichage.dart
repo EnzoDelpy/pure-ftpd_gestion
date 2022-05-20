@@ -116,6 +116,11 @@ class Affichage {
     return "\x1B[31mUtilisateur déjà existant\x1B[0m";
   }
 
+  //retourne un string pour dire qu'il faut lancer le programme en root
+  static String afficheLanceRoot() {
+    return "\x1B[31mVeuillez lancer le programme en root\x1B[0m";
+  }
+
   //retourne le nom d'utilisateur choisi par l'utilisateur
   static String getNomUtilisateur() {
     String nom = "";
@@ -285,7 +290,7 @@ class Affichage {
         try {
           int v1 = int.parse(nb[0] + nb[1]);
           int v2 = int.parse(nb[2] + nb[3]);
-          if (v1 > 24 || v1 < 0) {
+          if (v1 > 23 || v1 < 0) {
             valide = false;
           }
           if (v2 < 0 || v2 > 59) {

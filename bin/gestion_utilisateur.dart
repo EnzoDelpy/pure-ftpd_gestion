@@ -106,46 +106,58 @@ class GestionUtilisateurs {
 
   //reinitialise la limite de bande passante de téléchargement d'un utilisateur
   static Future<void> reinitLimiteTelechargement(String nom) async {
-    await Process.run('bash', ['-c', 'pure-pw usermod $nom -t -m']);
+    await Process.run('bash', ['-c', 'pure-pw usermod $nom -t "" -m']);
   }
 
   //reinitialise la limite de bande passante d'envoi d'un utilisateur
   static Future<void> reinitLimiteEnvoi(String nom) async {
-    await Process.run('bash', ['-c', 'pure-pw usermod $nom -T -m']);
+    await Process.run('bash', ['-c', 'pure-pw usermod $nom -T "" -m']);
   }
 
   //renitialise le nombre max de fichier d'un utilisateur
   static Future<void> reinitQuotaFichier(String nom) async {
-    await Process.run('bash', ['-c', 'pure-pw usermod $nom -n -m']);
+    await Process.run('bash', ['-c', 'pure-pw usermod $nom -n "" -m']);
   }
 
   //reinitialise la taille max utilisable d'un utilisateur
   static Future<void> reinitTailleMax(String nom) async {
-    await Process.run('bash', ['-c', 'pure-pw usermod $nom -N -m']);
+    await Process.run('bash', ['-c', 'pure-pw usermod $nom -N "" -m']);
   }
 
   //reinitialise les ip autorisées
   static Future<void> reinitAutoriseIp(String nom) async {
-    await Process.run('bash', ['-c', 'pure-pw usermod $nom -r -m']);
+    await Process.run('bash', ['-c', 'pure-pw usermod $nom -r "" -m']);
   }
 
   //réinitialise les ip bloquées
   static Future<void> reinitBloqueIp(String nom) async {
-    await Process.run('bash', ['-c', 'pure-pw usermod $nom -R -m']);
+    await Process.run('bash', ['-c', 'pure-pw usermod $nom -R "" -m']);
   }
 
   //réinitialise la limitation horaire
   static Future<void> reinitLimiteHoraire(String nom) async {
-    await Process.run('bash', ['-c', 'pure-pw usermod $nom -z -m']);
+    await Process.run('bash', ['-c', 'pure-pw usermod $nom -z "" -m']);
   }
 
   //réinitialise le nombre de session simultanée
   static Future<void> reinitNbSession(String nom) async {
-    await Process.run('bash', ['-c', 'pure-pw usermod $nom -y -m']);
+    await Process.run('bash', ['-c', 'pure-pw usermod $nom -y "" -m']);
   }
 
   //Supprime un utilisateur donné en paramètre
   static Future<void> supprimeUtilisateur(String nom) async {
     await Process.run('bash', ['-c', 'pure-pw userdel $nom -m']);
+  }
+
+  //Renvoi un booléen pour savoir si le programme a été lancé en root
+  static Future<bool> estRoot() async {
+    bool valide = false;
+    ProcessResult result = await Process.run('bash', ['-c', 'whoami']);
+    List<String> user = result.stdout.split(' ');
+    try {
+      return (user[0].substring(0, 4) == "root");
+    } catch (e) {
+      return false;
+    }
   }
 }
